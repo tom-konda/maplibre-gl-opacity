@@ -1,48 +1,66 @@
-/*コントロール全体設定*/
-#opacity-control {
-    width: 150px;
-    padding: 10px 0px 10px 10px;
-}
-#opacity-control hr {
-    margin: 5px 10px 5px 0px;
-}
-/*チェックボックス設定*/
-#opacity-control input[type='checkbox'] {
-    margin-right: 5px;
-}
-/*ラジオボタン設定*/
-#opacity-control input[type='radio'] {
-    margin-right: 5px;
-}
-/* スライドバー設定 */
-#opacity-control input[type='range'] {
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-    width: 125px;
-    height: 10px;
-    margin: 0;
-    border: none;
-    padding: 1px 2px;
-    border-radius: 30px;
-    background: #f1f0ee;
-    outline: none;
-}
-#opacity-control input[type='range']::-ms-track {
+/* Webkit系ブラウザでは入れ子だと擬似要素にスタイルが当たらないので分ける */
+#opacity-control input[type='range']::-webkit-slider-container,
+#opacity-control input[type='range']::-webkit-slider-runnable-track {
+    appearance: none;
     border: inherit;
     color: transparent;
     background: transparent;
 }
-#opacity-control input[type='range']::-ms-fill-lower,
-#opacity-control input[type='range']::-ms-fill-upper {
-    background: transparent;
-}
-#opacity-control input[type='range']::-ms-tooltip {
-    display: none;
-}
-#opacity-control input[type='range']::-ms-thumb {
+
+#opacity-control input[type='range']::-webkit-slider-thumb {
+    appearance: none;
     width: 15px;
     height: 18px;
     border-radius: 12px;
     border: 0;
     background-image: linear-gradient(to bottom, #1253a4 0, #1253a4 100%);
+}
+
+#opacity-control {
+    /*コントロール全体設定*/
+    width: 150px;
+    padding: 10px 0px 10px 10px;
+
+    hr {
+        margin: 5px 10px 5px 0px;
+    }
+
+    /*チェックボックス、ラジオボタン設定*/
+    input[type='checkbox'], input[type='radio'] {
+        margin-right: 5px;
+    }
+
+    input[type='range'] {
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+        appearance: none;
+        width: 125px;
+        height: 10px;
+        margin: 0;
+        border: none;
+        padding: 1px 2px;
+        border-radius: 30px;
+        background: #f1f0ee;
+        outline: none;
+
+        &::-moz-range-track {
+            appearance: none;
+            border: inherit;
+            color: transparent;
+            background: transparent;
+        }
+
+        &::-moz-range-progress {
+            background: transparent;
+            appearance: none;
+        }
+
+        &::-moz-range-thumb {
+            appearance: none;
+            width: 15px;
+            height: 18px;
+            border-radius: 12px;
+            border: 0;
+            background-image: linear-gradient(to bottom, #1253a4 0, #1253a4 100%);
+        }
+    }
 }
