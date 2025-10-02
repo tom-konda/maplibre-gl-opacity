@@ -16,8 +16,8 @@
 }
 /* スライドバー設定 */
 #opacity-control input[type='range'] {
-    -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    appearance: none;
     width: 125px;
     height: 10px;
     margin: 0;
@@ -27,19 +27,38 @@
     background: #f1f0ee;
     outline: none;
 }
-#opacity-control input[type='range']::-ms-track {
+#opacity-control input[type='range']::-webkit-slider-container {
+    appearance: none;
     border: inherit;
     color: transparent;
     background: transparent;
 }
-#opacity-control input[type='range']::-ms-fill-lower,
-#opacity-control input[type='range']::-ms-fill-upper {
+#opacity-control input[type='range']::-webkit-slider-runnable-track {
+    appearance: none;
+    border: inherit;
+    color: transparent;
     background: transparent;
 }
-#opacity-control input[type='range']::-ms-tooltip {
-    display: none;
+#opacity-control input[type='range']::-moz-range-track {
+    appearance: none;
+    border: inherit;
+    color: transparent;
+    background: transparent;
 }
-#opacity-control input[type='range']::-ms-thumb {
+#opacity-control input[type='range']::-moz-range-progress {
+    appearance: none;
+    background: transparent;
+}
+#opacity-control input[type='range']::-moz-range-thumb {
+    appearance: none;
+    width: 15px;
+    height: 18px;
+    border-radius: 12px;
+    border: 0;
+    background-image: linear-gradient(to bottom, #1253a4 0, #1253a4 100%);
+}
+#opacity-control input[type='range']::-webkit-slider-thumb {
+    appearance: none;
     width: 15px;
     height: 18px;
     border-radius: 12px;
